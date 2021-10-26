@@ -125,17 +125,13 @@
       const thisProduct = this;
 
       const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log('formData', formData);
-
       let price = thisProduct.data.price;
 
       for (let paramId in thisProduct.data.params) {
         const param = thisProduct.data.params[paramId];
-        // console.log(paramId, param);
 
         for (let optionId in param.options) {
           const option = param.options[optionId];
-          console.log(optionId, option);
           if (formData[paramId] && formData[paramId].includes(optionId)) {
             if (!option.default) {
               price += option.price;
@@ -155,8 +151,6 @@
   const app = {
     initMenu: function () {
       const thisApp = this;
-
-      console.log('thisApp.data:', thisApp.data);
 
       for (let productData in thisApp.data.products) {
         new Product(productData, thisApp.data.products[productData]);
