@@ -134,8 +134,7 @@
         for (let optionId in param.options) {
           const option = param.options[optionId];
           const imageAddons = thisProduct.imageWrapper.querySelector(`.${paramId}-${optionId}`);
-          const checkedInput = document.querySelectorAll('.checkbox label input');
-          console.log(checkedInput);
+
 
           if (formData[paramId] && formData[paramId].includes(optionId)) {
             if (imageAddons) {
