@@ -155,7 +155,6 @@
           }
         }
       }
-
       thisProduct.priceElem.innerHTML = price;
     }
 
