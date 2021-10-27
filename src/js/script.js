@@ -86,6 +86,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
 
     initAccordion() {
@@ -132,13 +133,24 @@
 
         for (let optionId in param.options) {
           const option = param.options[optionId];
+          const imageAddons = thisProduct.imageWrapper.querySelector(`.${paramId}-${optionId}`);
+          const checkedInput = document.querySelectorAll('.checkbox label input');
+          console.log(checkedInput);
+
           if (formData[paramId] && formData[paramId].includes(optionId)) {
+            if (imageAddons) {
+              imageAddons.classList.add('active');
+            }
+
             if (!option.default) {
               price += option.price;
             }
           } else {
             if (option.default) {
               price -= option.price;
+            }
+            if (imageAddons) {
+              imageAddons.classList.remove('active');
             }
           }
         }
