@@ -193,7 +193,7 @@
         thisWidget.value = newValue;
       }
 
-      thisWidget.value = newValue;
+      // thisWidget.value = newValue;
       thisWidget.input.value = thisWidget.value;
     }
     initActions() {
