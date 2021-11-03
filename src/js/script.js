@@ -67,7 +67,7 @@
   const settings = {
     amountWidget: {
       defaultValue: 1,
-      defaultMin: 0,
+      defaultMin: 1,
       defaultMax: 10,
     },
     cart: {
@@ -229,7 +229,7 @@
         params[paramId] = {
           label: param.label,
           options: {}
-        }
+        };
 
         for (let optionId in param.options) {
           const option = param.options[optionId];
@@ -328,7 +328,7 @@
 
       thisCart.dom.productList.appendChild(generatedDOM);
 
-      thisCart.products.push(menuProduct);
+      thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
 
       console.log('adding product', menuProduct);
     }
@@ -345,8 +345,9 @@
       thisCartProduct.params = menuProduct.params;
 
       thisCartProduct.getElements(element);
+      thisCartProduct.initAmountWidget();
 
-
+      console.log(thisCartProduct);
     }
 
     getElements(element) {
@@ -359,8 +360,14 @@
       thisCartProduct.dom.price = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.price);
       thisCartProduct.dom.edit = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.edit);
       thisCartProduct.dom.remove = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.remove);
+    }
+    initAmountWidget() {
+      const thisCartProduct = this;
 
-
+      thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidget);
+      thisCartProduct.dom.amountWidget.addEventListener('updated', function () {
+        thisCartProduct.price = thisCartProduct.amount * thisCartProduct.amountWidget;
+      });
     }
   }
 
