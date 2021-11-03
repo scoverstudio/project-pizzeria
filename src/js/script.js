@@ -212,7 +212,7 @@
         name: thisProduct.data.name,
         amount: thisProduct.amountWidget.value,
         priceSingle: thisProduct.priceSingle,
-        price: thisProduct.data.price,
+        price: thisProduct.priceSingle,
         params: thisProduct.prepareCartProductParams()
       };
       return productSummary;
@@ -328,6 +328,10 @@
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
 
       thisCart.dom.productList.appendChild(generatedDOM);
+
+      thisCart.products.push(menuProduct);
+
+      console.log('ThisCart.products', thisCart.products);
 
       console.log('adding product', menuProduct);
     }
