@@ -253,7 +253,7 @@
       thisWidget.element.dispatchEvent(event);
     }
   }
-  class cart {
+  class Cart {
     constructor(element) {
       const thisCart = this;
 
