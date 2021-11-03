@@ -235,7 +235,7 @@
           const option = param.options[optionId];
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
           if (optionSelected) {
-            params[paramId].options
+            params[paramId].options = option;
           }
         }
       }
