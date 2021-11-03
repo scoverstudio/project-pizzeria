@@ -296,7 +296,7 @@
       const thisApp = this;
 
       const cartElem = document.querySelector(select.containerOf.cart);
-      thisApp.cart = new cart(cartElem);
+      thisApp.Cart = new Cart(cartElem);
     },
     init: function () {
       const thisApp = this;
