@@ -99,7 +99,6 @@
       const thisProduct = this;
 
       const generatedHTML = templates.menuProduct(thisProduct.data);
-
       thisProduct.element = utils.createDOMFromHTML(generatedHTML);
 
       const menuContainer = document.querySelector(select.containerOf.menu);
@@ -203,7 +202,7 @@
     addToCart() {
       const thisProduct = this;
 
-      app.cart.add(thisProduct.prepareCartProduct);
+      app.cart.add(thisProduct.prepareCartProduct());
     }
     prepareCartProduct() {
       const thisProduct = this;
@@ -214,9 +213,9 @@
         amount: thisProduct.amountWidget.value,
         priceSingle: thisProduct.priceSingle,
         price: thisProduct.data.price,
-        params: thisProduct.prepareCartProductParams
+        params: thisProduct.prepareCartProductParams()
       };
-      return
+      return productSummary;
     }
     prepareCartProductParams() {
       const thisProduct = this;
@@ -235,7 +234,6 @@
         for (let optionId in param.options) {
           const option = param.options[optionId];
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
-
           if (optionSelected) {
             params[paramId].options
           }
@@ -325,7 +323,7 @@
     add(menuProduct) {
       const thisCart = this;
 
-      const generatedHTML = templates.cartProduct(thisCart.data);
+      const generatedHTML = templates.cartProduct(menuProduct);
 
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
 
