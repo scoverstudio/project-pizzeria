@@ -16,20 +16,17 @@
         "linebreak-style": [
             "off"
         ],
-        "quotes": [
-            "error",
-            "single",
-            {"allowTemplateLiterals": true}
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
+
+        // "semi": [
+        //     "error",
+        //     "always"
+        // ],
         "no-console": [
             "off"
         ]
     },
     "globals": {
-      "Handlebars": false
+        "Handlebars": false
     }
+
 }
