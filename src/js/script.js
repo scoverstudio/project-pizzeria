@@ -416,7 +416,8 @@
     remove(thisCartProduct) {
       const thisCart = this;
       thisCartProduct.dom.wrapper.remove();
-      thisCart.products.splice(thisCart.products.indexOf(CartProduct), 1);
+      const indexOfProducts = thisCart.products.indexOf(thisCartProduct);
+      thisCart.products.splice(indexOfProducts, 1);
       thisCart.update();
     }
   }
