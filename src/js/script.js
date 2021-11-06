@@ -346,7 +346,6 @@
 
       thisCart.getElements(element);
       thisCart.initActions();
-      console.log(thisCart.products);
     }
 
     getElements(element) {
@@ -357,6 +356,7 @@
       thisCart.dom.wrapper = element;
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
       thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
+      thisCart.dom.productListEach = thisCart.dom.wrapper.querySelector('ul li');
       thisCart.dom.deliveryFee = thisCart.dom.wrapper.querySelector(select.cart.deliveryFee);
       thisCart.dom.subtotalPrice = thisCart.dom.wrapper.querySelector(select.cart.subtotalPrice);
       thisCart.dom.totalPrice = thisCart.dom.wrapper.querySelector(select.cart.totalPrice);
@@ -450,7 +450,6 @@
         deliveryFee: thisCart.deliveryFee,
         products: []
       };
-      console.log(payload);
       for (let prod of thisCart.products) {
         payload.products.push(prod.getData());
       }
@@ -463,7 +462,9 @@
         body: JSON.stringify(payload),
       };
       fetch(url, options);
+      window.alert('Dziękujęmy za złożenie zamówenia :)')
     }
+
   }
 
 
@@ -577,12 +578,10 @@
           return rawResponse.json();
         })
         .then(function (parsedResponse) {
-          console.log('parsedResponse', parsedResponse);
           thisApp.data.products = parsedResponse;
           thisApp.initMenu();
         });
 
-      console.log('thisApp.data', JSON.stringify(thisApp.data));
     },
     initCart: function () {
       const thisApp = this;
