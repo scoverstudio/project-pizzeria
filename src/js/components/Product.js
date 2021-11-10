@@ -149,8 +149,7 @@ class Product {
 
         thisProduct.name = thisProduct.data.name;
         thisProduct.amount = thisProduct.amountWidget.value;
-        thisProduct.price = thisProduct.priceSingle;
-
+        thisProduct.price = thisProduct.priceSingle * thisProduct.amount;
 
         const event = new CustomEvent('add-to-cart', {
             bubbles: true,

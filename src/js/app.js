@@ -9,7 +9,6 @@ import Cart from "./components/Cart.js";
 {
   "use strict";
 
-
   const app = {
     initMenu: function () {
       const thisApp = this;
