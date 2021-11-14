@@ -5,8 +5,8 @@ import {
 import BaseWidget from "./BaseWidget.js";
 
 class AmountWidget extends BaseWidget {
-    constructor(element) {
-        super(element, settings.amountWidget.defaultValue);
+    constructor(element, initialValue = settings.amountWidget.defaultValue) {
+        super(element, initialValue);
 
         const thisWidget = this;
 
