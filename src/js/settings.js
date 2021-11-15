@@ -44,6 +44,7 @@
           peopleAmount: '.people-amount',
           hoursAmount: '.hours-amount',
           tables: '.floor-plan .table',
+          tableDiv: '.floor-plan'
       },
       nav: {
           links: '.main-nav a',
@@ -115,8 +116,8 @@
           orders: 'orders',
           product: 'product',
           order: 'order',
-          booking: 'booking',
-          event: 'event',
+          booking: 'bookings',
+          event: 'events',
           dateStartParamKey: 'date_gte',
           dateEndParamKey: 'date_lte',
           notRepeatParam: 'repeat=false',
