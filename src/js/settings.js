@@ -42,9 +42,13 @@
       },
       booking: {
           peopleAmount: '.people-amount',
+          amountInput: '.people-amount .amount',
           hoursAmount: '.hours-amount',
           tables: '.floor-plan .table',
-          tableDiv: '.floor-plan'
+          tableDiv: '.floor-plan',
+          formSubmit: '.booking-form',
+          formAdress: '[name="address"]',
+          formPhone: '[name="phone"]',
       },
       nav: {
           links: '.main-nav a',

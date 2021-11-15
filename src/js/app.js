@@ -103,7 +103,8 @@ import Booking from "./components/Booking.js";
       const thisApp = this;
 
       thisApp.bookingWidget = document.querySelector(select.containerOf.booking);
-      thisApp.booking = new Booking(thisApp.bookingWidget);
+      thisApp.chosenTable = '';
+      thisApp.booking = new Booking(thisApp.bookingWidget, thisApp.chosenTable);
     },
     init: function () {
       const thisApp = this;
