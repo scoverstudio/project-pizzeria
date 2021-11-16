@@ -44,6 +44,7 @@
           peopleAmount: '.people-amount',
           amountInput: '.people-amount .amount',
           hoursAmount: '.hours-amount',
+          hoursInput: 'input[name="hours"]',
           tables: '.floor-plan .table',
           tableDiv: '.floor-plan',
           formSubmit: '.booking-form',
