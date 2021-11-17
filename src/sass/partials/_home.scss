@@ -6,6 +6,12 @@
     border-radius: $radius;
 }
 
+section {
+    margin-bottom: 150px;
+}
+
+// panels
+
 .panels {
     display: flex;
     align-items: center;
@@ -17,7 +23,6 @@
         width: 100px;
         height: 110px;
         margin: 5px;
-        background-color: black;
         color: $color-light;
         text-transform: uppercase;
         border-radius: 5px;
@@ -34,7 +39,7 @@
 
     .panel:nth-child(1) {
         flex: 1 1 10em;
-        background-image: url("");
+        background-image: url("../../images/assets/pizza-1.jpg");
         line-height: 110px;
         text-align: center;
     }
@@ -56,6 +61,21 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+        }
+    }
+}
+
+// carousel
+.main-carousel {
+    .carousel-cell {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+        .carousel-image {
+            background-color: black;
+            width: 100px;
+            height: 100%;
         }
     }
 }
