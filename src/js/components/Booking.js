@@ -146,30 +146,29 @@ class Booking {
     selectTable(event) {
         const thisBooking = this;
 
-        const clickedTable = event.target.classList.contains('table');
-        const clickedTableId = event.target;
-        const bookedTable = event.target.classList.contains('booked');
-        const tableId = clickedTableId.getAttribute(settings.booking.tableIdAttribute);
-        const selectedTable = clickedTableId.classList.contains('selected');
+        const clickedTable = event.target;
+        const isThisTable = clickedTable.classList.contains('table');
+        const isAlreadyBooked = clickedTable.classList.contains('booked');
+        const tableId = clickedTable.getAttribute(settings.booking.tableIdAttribute);
+        const selectedTable = clickedTable.classList.contains('selected');
 
-        if (clickedTable) {
-            if (bookedTable) {
-                alert('Stolik zajęty!');
-            } else if (selectedTable) {
-                for (let table of thisBooking.dom.tables) {
-                    table.classList.remove('selected');
-                    thisBooking.chosenTable = null;
-                }
-            } else {
-                for (let table of thisBooking.dom.tables) {
-                    table.classList.remove('selected');
-                    clickedTableId.classList.add('selected');
-                    thisBooking.chosenTable = tableId;
-                }
+        if (isAlreadyBooked && isThisTable) {
+            alert('Stolik zajęty!');
+        } else if (selectedTable) {
+            for (let table of thisBooking.dom.tables) {
+                table.classList.remove('selected');
             }
+            thisBooking.chosenTable = null;
+        } else {
+            for (let table of thisBooking.dom.tables) {
+                table.classList.remove('selected');
+            }
+            clickedTable.classList.add('selected');
+            thisBooking.chosenTable = tableId;
         }
         thisBooking.getData();
     }
+
 
     sendBooking() {
         const thisBooking = this;
@@ -203,7 +202,7 @@ class Booking {
             body: JSON.stringify(payload),
         };
 
-        if (!thisBooking.dom.submitPhone.value.length == 0 && !thisBooking.dom.submitAdress.value.length == 0 && thisBooking.chosenTable) {
+        if (thisBooking.dom.submitPhone.value.length && thisBooking.dom.submitAdress.value.length && thisBooking.chosenTable) {
             fetch(url, options).then(function () {
                 window.alert('Dziękujęmy za złożenie zamówenia :)');
             });
