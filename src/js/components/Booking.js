@@ -151,20 +151,21 @@ class Booking {
         const isAlreadyBooked = clickedTable.classList.contains('booked');
         const tableId = clickedTable.getAttribute(settings.booking.tableIdAttribute);
         const selectedTable = clickedTable.classList.contains('selected');
-
-        if (isAlreadyBooked && isThisTable) {
-            alert('Stolik zajęty!');
-        } else if (selectedTable) {
-            for (let table of thisBooking.dom.tables) {
-                table.classList.remove('selected');
+        if (isThisTable) {
+            if (isAlreadyBooked) {
+                alert('Stolik zajęty!');
+            } else if (selectedTable) {
+                for (let table of thisBooking.dom.tables) {
+                    table.classList.remove('selected');
+                }
+                thisBooking.chosenTable = null;
+            } else {
+                for (let table of thisBooking.dom.tables) {
+                    table.classList.remove('selected');
+                }
+                clickedTable.classList.add('selected');
+                thisBooking.chosenTable = tableId;
             }
-            thisBooking.chosenTable = null;
-        } else {
-            for (let table of thisBooking.dom.tables) {
-                table.classList.remove('selected');
-            }
-            clickedTable.classList.add('selected');
-            thisBooking.chosenTable = tableId;
         }
         thisBooking.getData();
     }

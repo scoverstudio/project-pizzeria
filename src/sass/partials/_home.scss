@@ -72,11 +72,27 @@ section {
         flex-direction: row;
         width: 100%;
 
-
         .carousel-image {
             background-color: black;
-            width: 100px;
-            height: 100%;
+            min-width: 100px;
+            flex-basis: 30%;
+        }
+
+        .image1 {
+            background-image: url("../../images/assets/pizza-2.jpg");
+        }
+
+        .image2 {
+            background-image: url("../../images/assets/pizza-3.jpg");
+        }
+
+        .image3 {
+            background-image: url("../../images/assets/pizza-4.jpg");
+        }
+
+        .carousel-text {
+            flex-basis: 70%;
+
         }
     }
 }
