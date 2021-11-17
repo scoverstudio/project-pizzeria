@@ -3,12 +3,14 @@
           menuProduct: "#template-menu-product",
           cartProduct: "#template-cart-product",
           bookingWidget: '#template-booking-widget',
+          homeWidget: '#template-home',
       },
       containerOf: {
           menu: "#product-list",
           cart: "#cart",
           pages: '#pages',
           booking: '.booking-wrapper',
+          home: '.home-wrapper',
       },
       all: {
           menuProducts: "#product-list > .product",
@@ -138,5 +140,5 @@
           document.querySelector(select.templateOf.cartProduct).innerHTML
       ),
       bookingWidget: Handlebars.compile(document.querySelector(select.templateOf.bookingWidget).innerHTML),
-
+      homeWidget: Handlebars.compile(document.querySelector(select.templateOf.homeWidget).innerHTML),
   };

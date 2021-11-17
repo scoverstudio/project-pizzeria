@@ -7,6 +7,7 @@ import {
 import Product from "./components/Product.js";
 import Cart from "./components/Cart.js";
 import Booking from "./components/Booking.js";
+import Home from "./components/Home.js";
 
 
 
@@ -86,7 +87,12 @@ import Booking from "./components/Booking.js";
         });
 
     },
+    initHome: function () {
+      const thisApp = this;
 
+      thisApp.homeWidget = document.querySelector(select.containerOf.home);
+      thisApp.home = new Home(thisApp.homeWidget);
+    },
     initCart: function () {
       const thisApp = this;
 
@@ -109,6 +115,7 @@ import Booking from "./components/Booking.js";
       const thisApp = this;
       thisApp.initPages();
       thisApp.initData();
+      thisApp.initHome();
       thisApp.initCart();
       thisApp.initBooking();
     },
