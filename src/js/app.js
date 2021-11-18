@@ -8,10 +8,6 @@ import Product from "./components/Product.js";
 import Cart from "./components/Cart.js";
 import Booking from "./components/Booking.js";
 import Home from "./components/Home.js";
-import BaseWidget from "./components/BaseWidget.js";
-import HourPicker from "./components/HourPicker.js";
-import DatePicker from "./components/DatePicker.js";
-
 
 
 {
