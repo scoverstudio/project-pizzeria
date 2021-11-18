@@ -63,6 +63,7 @@ import Home from "./components/Home.js";
       }
 
     },
+    
     initMenu: function () {
       const thisApp = this;
 
